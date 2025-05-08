@@ -1,0 +1,38 @@
+﻿@model NaatWebApp.Models.NaatKhuwaan
+
+@{
+    ViewBag.Title = "Signin";
+}
+
+<h2>Signin</h2>
+@using (Html.BeginForm()) //if method is not mentioed than it will be post method
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>NaatKhawaan</h4>
+        <hr />
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.nid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nid, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+<b>User ID : </b> @Session["uid"]
+<br />
+<b>Full Name : </b>@Session["fn"]
+<br />
+
+<h2 align =" center" >User Dashboard</h2>
+
+<div style=" border : 2px solid black">
+    @Html.ActionLink("All NaatKhuwaan", "AllNaatKhuwaan" , "NaatKhuwaan")
+    @Html.ActionLink("Add Album", "CreateAlbum", "Album")
+</div>

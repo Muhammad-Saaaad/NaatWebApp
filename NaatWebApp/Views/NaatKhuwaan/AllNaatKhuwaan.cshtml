@@ -1,0 +1,53 @@
+﻿@model List<NaatWebApp.Models.NaatKhuwaan>
+@{
+    ViewBag.Title = "AllNaatKhuwaan";
+}
+
+@using NaatWebApp.Models;
+@using System.Data.SqlClient;
+
+@{
+    var cities = new List<SelectListItem>();
+    DBAccess db = new DBAccess();
+    db.OpenConnection();
+    string q = "Select distinct city from NaatKhuwaan";
+    SqlDataReader sdr = db.GetData(q);
+    while (sdr.Read())
+    {
+        cities.Add(new SelectListItem { Text = sdr[0].ToString(), Value = sdr[0].ToString() });
+
+    }
+    sdr.Close();
+    db.CloseConnection();
+}
+
+<h2>AllNaatKhuwaan</h2>
+@using (Html.BeginForm())
+{
+    <b>City</b>
+    @Html.DropDownList("cities", cities, "select")
+    <input type="submit" value="Search" />
+}
+
+
+
+<table class ="table" >
+    <tr>
+        <th>Naatkhuwaan Id</th>
+        <th>Full Name</th>
+    </tr>
+    @foreach (var nk in Model)
+    {
+        <tr>
+            <td>@nk.nid</td>
+            <td>@nk.fullname</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { nid = nk.nid })</td>
+            <td>@Html.ActionLink("Details", "Details", new { nid = nk.nid })</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { nid = nk.nid })</td>
+
+
+        </tr>
+    }
+
+   
+</table>
