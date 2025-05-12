@@ -16,7 +16,7 @@
 
 @*here our form data is in multi-part means we have data in text and also in file, Important for Exams*@
 
-@using (Html.BeginForm("CreateAlbum", "Album", FormMethod.Post, new { enctype = "multipart/form-date" }))
+@using (Html.BeginForm("CreateAlbum", "Album", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     //new { enctype = "multipart/form-date"  this sends the file to the server without it file cannot be sent}
 
@@ -77,3 +77,8 @@
     </div>
 
 }
+
+@if(IsPost)
+            {
+                <img src=@Model.filepath height="200" width="200" />
+            }

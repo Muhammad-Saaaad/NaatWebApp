@@ -27,7 +27,7 @@ namespace NaatWebApp.Controllers
         {
             nk.nid = nk.email.Split('@')[0];
             db.OpenConnection();
-            string query = "Insert into naatkhuwaan values('" + nk.nid + "' , '" + nk.fullname + "' , '" + nk.city + "' , '" + nk.gender + "', '" + nk.alive + "' , '" + nk.password + "', '" + nk.email + "')";
+            string query = "Insert into naatkhuwaan values('" + nk.nid + "' , '" + nk.fullname + "' , '" + nk.city + "' , '" + nk.gender + "', '" + nk.alive + "' , '" + nk.email + "', '" + nk.password + "')";
             db.InsertUpdateDelete(query);
             db.CloseConnection();
 
@@ -170,7 +170,9 @@ namespace NaatWebApp.Controllers
             string query = "select * from NaatKhuwaan where nid ='" + nid + "'";
             SqlDataReader sdr = db.GetData(query);
             sdr.Read();
+
             NaatKhuwaan nk = new NaatKhuwaan();
+
             nk.nid = sdr["nid"].ToString();
             nk.fullname = sdr["fullname"].ToString();
             nk.city = sdr["city"].ToString();
@@ -178,8 +180,10 @@ namespace NaatWebApp.Controllers
             nk.alive = (bool)sdr["alive"];
             nk.email = sdr["Email"].ToString();
             nk.password = sdr["Password"].ToString();
+
             sdr.Close();
             db.CloseConnection();
+
             return View(nk);
         }
 

@@ -191,6 +191,7 @@
     <Content Include="Views\NaatKhuwaan\AllNaatKhuwaan.cshtml" />
     <Content Include="Views\NaatKhuwaan\Details.cshtml" />
     <Content Include="Views\NaatKhuwaan\Edit.cshtml" />
+    <Content Include="Views\Album\ShowAlbums.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
