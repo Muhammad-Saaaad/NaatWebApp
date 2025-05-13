@@ -154,7 +154,7 @@ namespace NaatWebApp.Controllers
             nk.fullname = sdr["fullname"].ToString();
             nk.city = sdr["city"].ToString();
             nk.gender = char.Parse(sdr["gender"].ToString());
-            nk.alive = (bool)sdr["alive"];
+            nk.alive = bool.Parse(sdr["alive"].ToString());
             nk.email = sdr["Email"].ToString();
             nk.password = sdr["Password"].ToString();
             sdr.Close();
@@ -177,7 +177,7 @@ namespace NaatWebApp.Controllers
             nk.fullname = sdr["fullname"].ToString();
             nk.city = sdr["city"].ToString();
             nk.gender = char.Parse(sdr["gender"].ToString());
-            nk.alive = (bool)sdr["alive"];
+            nk.alive = bool.Parse(sdr["alive"].ToString());
             nk.email = sdr["Email"].ToString();
             nk.password = sdr["Password"].ToString();
 
