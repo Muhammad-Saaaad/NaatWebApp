@@ -11,5 +11,5 @@
 <div style=" border : 2px solid black">
     @Html.ActionLink("All NaatKhuwaan", "AllNaatKhuwaan" , "NaatKhuwaan") 
     @Html.ActionLink("Add Album", "CreateAlbum", "Album")
-    @Html.ActionLink("Show Albums", "ShowAlbums", "Album", new { nid = Session["uid"] }) @*nid is a query string object*@
+    @Html.ActionLink("Show Albums", "ShowAlbums", "Album", new { nid = Session["uid"] },null) @*nid is a query string object*@
 </div>

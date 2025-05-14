@@ -3,56 +3,28 @@
 @{
     ViewBag.Title = "ShowAlbums";
 }
-
-<h2>ShowAlbums</h2>
+<b>User ID : </b> @Session["uid"]
+<br />
+<b>Full Name : </b>@Session["fn"]
+<br />
+<h2>All Albums</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Album", "CreateAlbum")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nid)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ano)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.aname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.year)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.filepath)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ano)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.aname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.year)
-        </td>
-        <td>
-            <img src="@item.filepath height="50" width="50"/>
-            @Html.DisplayFor(modelItem => item.filepath)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-3">
+                <img src=@item.filepath height="150" width="150" />
 
-</table>
+                @Html.DisplayFor(modelItem => item.aname)
+
+                @Html.DisplayFor(modelItem => item.year)
+
+            </div>
+
+        }
+    </div>
+

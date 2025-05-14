@@ -62,6 +62,8 @@ namespace NaatWebApp.Controllers
                     year = (int)sdr["year"]
                 });
             }
+            sdr.Close();
+            db.CloseConnection();
             return View(a);
         }
     }
