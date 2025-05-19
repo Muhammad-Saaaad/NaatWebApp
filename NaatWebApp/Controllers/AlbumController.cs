@@ -50,13 +50,15 @@ namespace NaatWebApp.Controllers
         {
             List<Albums> a = new List<Albums>();
 
-            String q = "Select filepath, aname, year from albums where nid = '" + nid+"'";
+            String q = "Select filepath, ano,aname, year from albums where nid = '" + nid+"'";
             db.OpenConnection();
             SqlDataReader sdr = db.GetData(q);
 
             while (sdr.Read())
             {
-                a.Add(new Albums() {
+                a.Add(new Albums()
+                {
+                    ano = int.Parse(sdr["ano"].ToString()),
                     filepath = sdr["filepath"].ToString(),
                     aname = sdr["aname"].ToString(),
                     year = (int)sdr["year"]
