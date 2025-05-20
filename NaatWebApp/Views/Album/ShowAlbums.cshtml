@@ -13,20 +13,19 @@
     @Html.ActionLink("Create New Album", "CreateAlbum")
 </p>
 
+
     <div class="container">
         @foreach (var item in Model)
         {
-            <div class="col-lg-3">
-                <img src=@item.filepath height="150" width="150" />
 
-                @Html.DisplayFor(modelItem => item.ano)
-
-                @Html.DisplayFor(modelItem => item.aname)
-
-                @Html.DisplayFor(modelItem => item.year)
-
-            </div>
-
-        }
+    <div class="col-lg-3">
+    <a href="/Naat/AddNaat?">
+        <img src="@item.filepath" style="width:100px;height:100px;padding:10px;" />
+    </a>
+        <p><b>Album No:</b>@item.ano</p>
+        <p><b>Title:</b>@item.aname</p>
     </div>
 
+        }
+
+    </div>
