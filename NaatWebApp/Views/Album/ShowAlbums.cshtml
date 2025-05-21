@@ -14,7 +14,7 @@
 </p>
 
 
-    <div class="container">
+@*<div class="container">
         @foreach (var item in Model)
         {
 
@@ -28,4 +28,33 @@
 
         }
 
+    </div>*@
+
+@if (Model != null && Model.Any())
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <a href="/Naat/AllNaat?nid=@Session["uid"]&&Ano=@item.ano&&title=@item.aname">
+
+                        <img src="@item.filepath" class="card-img-top img-fluid" alt="Album Image" style="max-height: 200px; object-fit: contain; width:100%">
+
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.aname</h5>
+                        <p class="card-text">
+                            <strong>Album No:</strong> @item.ano<br />
+                            <strong>Year:</strong> @item.year
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
+}
+else
+{
+    <div class="alert alert-info">No albums found.</div>
+}
