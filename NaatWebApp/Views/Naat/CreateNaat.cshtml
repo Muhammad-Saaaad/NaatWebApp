@@ -1,0 +1,28 @@
+﻿@model NaatWebApp.Models.Naat
+
+<div>
+    <b>User ID : </b> @Session["uid"]
+    ----------------------------------------
+    <b>Full Name : </b>@Session["fn"]
+    <br />
+
+    <b>Album No: @Request.QueryString["ano"]</b>
+    <b>Title: @Request.QueryString["title"]</b>
+</div>
+
+<center> <h2>Create Naat</h2> </center>
+
+@using (Html.BeginForm("CreateNaat", "Naat", FormMethod.Post, new { enctype = "multipart/from-data" })) 
+{ 
+    <b>Naat No</b> 
+    @Html.EditorFor(Model => Model.nno)
+    <br />
+
+    <fieldset>
+        <legend> Audio </legend>
+        @Html.TextBoxFor(model => model.audiofile, new {type = "file", htmlAttributes = new { @class = "form-control" }})
+    </fieldset>
+
+    <input type="submit" value="Create"/>
+    
+}

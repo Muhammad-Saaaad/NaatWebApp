@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "AllNaat";
+}
+
+<div>
+    <b>User ID : </b> @Session["uid"]
+    ----------------------------------------
+    <b>Full Name : </b>@Session["fn"]
+    <br />
+
+    <b>Album No: @Request.QueryString["ano"]</b>
+    <b>Title: @Request.QueryString["title"]</b> 
+    @*Here we need to manage state {save the album no and title somewhere}*@
+</div>
+
+<h2>All Naat</h2>
+
+<div>
+
+</div>
+
+@Html.ActionLink("Create New Naat", "CreateNaat", new {ano= @Request.QueryString["ano"], title = @Request.QueryString["title"] }) 
+@*here the previous controller is AllNaat so this will also go to all Naat*@

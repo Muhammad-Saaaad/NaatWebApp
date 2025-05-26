@@ -121,7 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AlbumController.cs" />
-    <Compile Include="Controllers\AllNaatController.cs" />
+    <Compile Include="Controllers\NaatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NaatKhuwaanController.cs" />
     <Compile Include="Global.asax.cs">
@@ -194,7 +194,8 @@
     <Content Include="Views\NaatKhuwaan\Details.cshtml" />
     <Content Include="Views\NaatKhuwaan\Edit.cshtml" />
     <Content Include="Views\Album\ShowAlbums.cshtml" />
-    <Content Include="Views\AllNaat\AllNaat.cshtml" />
+    <Content Include="Views\Naat\AllNaat.cshtml" />
+    <Content Include="Views\Naat\CreateNaat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
