@@ -15,8 +15,10 @@
 @using (Html.BeginForm("CreateNaat", "Naat", FormMethod.Post, new { enctype = "multipart/from-data" })) 
 { 
     <b>Naat No</b> 
-    @Html.EditorFor(Model => Model.nno)
+    @Html.EditorFor(model => model.nno)
     <br />
+
+    @Html.Hidden("AlbumNo", Request.QueryString["ano"])
 
     <fieldset>
         <legend> Audio </legend>

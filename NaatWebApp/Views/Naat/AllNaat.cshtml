@@ -1,4 +1,5 @@
-﻿
+﻿@model List<NaatWebApp.Models.Naat>
+
 @{
     ViewBag.Title = "AllNaat";
 }
@@ -17,6 +18,18 @@
 <h2>All Naat</h2>
 
 <div>
+    <table>
+        @foreach(var n in Model ){
+           <tr>
+               <td>
+                   @n.naat </td>
+               <td> <audio id=@n.nno  controlls>
+                   <source src=@n.filepath type="audio/mpeg" />
+                   </audio>
+                   </td></tr>
+
+        }
+        </table>
 
 </div>
 

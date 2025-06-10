@@ -6,11 +6,18 @@ using System.Data.SqlClient;
 using System.Runtime.Remoting.Services;
 using System.Data;
 
+using System.Configuration; // add this to import connnection string from configuration
+
 namespace NaatWebApp.Models
 {
 	public class DBAccess
 	{
-		static string connstr = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=CMSdb;Data Source=SAAD\\VE_SERVER";
+        // This configuration manager represent the configuration tag in web.config
+
+        // constring is the name attribute from add tag
+		// ConnectionString is the attribute from add tag
+
+        static string connstr = ConfigurationManager.ConnectionStrings["constring"].ConnectionString;
 		public SqlConnection conn = new SqlConnection(connstr);
 		public SqlCommand cmd = null;
 		public SqlDataReader sdr = null;

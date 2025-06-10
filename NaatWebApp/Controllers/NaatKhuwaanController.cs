@@ -69,8 +69,6 @@ namespace NaatWebApp.Controllers
                 sdr.Read();
                 Session["uid"] = sdr["nid"].ToString();
                 Session["fn"] = sdr["fullname"].ToString();
-
-
                 sdr.Close();
             }
             else
